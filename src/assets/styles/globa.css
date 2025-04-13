@@ -1,0 +1,59 @@
+.code-block-element {
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
+}
+
+.code-block-element .code-area {
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  overflow: hidden;
+  width: 100%;
+}
+
+.code-block-element .code-area .header {
+  align-items: center;
+  background-color: #2e343e;
+  color: hsla(0, 0%, 100%, 0.55);
+  display: flex;
+  flex-direction: row;
+  flex-shrink: 0;
+  font-size: 12px;
+  height: fit-content;
+  justify-content: space-between;
+  padding: 6px 24px;
+}
+
+.code-block-element .code-area .header .text {
+  display: flex;
+  align-items: center;
+}
+
+.code-block-element .code-area .header .copy {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: fit-content;
+  width: fit-content;
+  gap: 16px;
+}
+
+.code-block-element .code-area .header .copy .copy-btn {
+  cursor: pointer;
+  background-color: transparent;
+}
+
+.code-block-element .code-area .content {
+  background-color: #0d1117;
+  flex-shrink: 0;
+  height: fit-content;
+  padding: 12px 16px 16px 16px;
+}
+
+pre {
+  border-radius: 6px;
+  line-height: 1.5;
+  overflow: auto;
+}
