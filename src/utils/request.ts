@@ -22,10 +22,7 @@ service.interceptors.request.use(
   (config: InternalAxiosRequestConfig) => {
     const { getCache } = useCookies()
     const auth = getCache('auth') as Auth
-    if (auth.token) {
-      config.headers['Token'] = auth.token
-      // config.headers['x-app'] = `0xbot studio`
-    }
+    config.headers['Token'] = auth?.token || ''
     return config
   },
   (error: any) => {

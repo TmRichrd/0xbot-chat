@@ -20,7 +20,7 @@ export const useEventStream = () => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            token: auth.token,
+            token: auth?.token || '',
           },
           body: JSON.stringify(data),
         })

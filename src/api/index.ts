@@ -4,7 +4,7 @@ import {
   conversationHistoryProps,
   authProps,
   AuthDataRes,
-  upsertConversationProps
+  upsertConversationProps,
 } from './types'
 
 export const login_with_device = (data: loginWithDeviceProps) => {
@@ -17,6 +17,9 @@ export const sdk_sdk_get_token = (data: authProps) => {
 export const app_conversation_history = (data: conversationHistoryProps) => {
   return post('/app/conversation_history', data)
 }
-export const app_upsert_conversation = (data: upsertConversationProps)=>{
+export const app_upsert_conversation = (data: upsertConversationProps) => {
   return post('/app/upsert_conversation', data)
+}
+export const app_delete_one_conversation_history = (id: string) => {
+  return post('/app/delete_one_conversation_history', { id })
 }

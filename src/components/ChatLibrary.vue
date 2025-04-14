@@ -10,8 +10,12 @@
       </div>
     </div>
     <div class="chat-bar">
-      <div></div>
-      <input class="chat-bar-input" :disabled="loading" placeholder="Ask anything..." v-model="inputMessage" @keyup.enter="sendMessage" />
+      <svg @click="handleTrashConversation" class="chat-bar-trash" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          d="M4 7h16m-10 4v6m4-6v6M5 7l1 12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2l1-12M9 7V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v3" />
+      </svg>
+      <input class="chat-bar-input" :disabled="loading" placeholder="Ask anything..." v-model="inputMessage"
+        @keyup.enter="sendMessage" />
       <button class="chat-bar-send" :disabled="loading"
         :style="{ borderColor: styles.primary, color: styles.primary, '--primary-color': styles.primary }"
         @click="sendMessage">Send</button>
@@ -26,7 +30,7 @@ import type { Agent, authProps, conversationHistoryProps, StramProps } from "../
 import MessageItem from "./MessageItem.vue"
 import { renderMarkdown } from "../utils/markdown-plugin"
 import { useCookies } from '../composables/useCookies'
-import { app_conversation_history, app_upsert_conversation, sdk_sdk_get_token } from '../api'
+import { app_conversation_history, app_upsert_conversation, sdk_sdk_get_token, app_delete_one_conversation_history } from '../api'
 import { baseURL } from '../utils/request'
 import { useEventStream } from '../composables/useEventSource'
 import { transformDataArray } from "../utils"
@@ -93,8 +97,8 @@ export default defineComponent({
       scrollToBottom()
       const body: StramProps = {
         q: inputMessage.value,
-        app_id: agent.app_id,
-        conversation_id: conversation,
+        app_id: agent?.app_id || '',
+        conversation_id: conversation || '',
         is_debug: false,
         medias: [],
       }
@@ -106,14 +110,6 @@ export default defineComponent({
       } finally {
         loading.value = false
       }
-      // TODO:
-      // setTimeout(() => {
-      //   messages.value.push({
-      //     self: false,
-      //     content: `This is a simulated reply to: "${messages.value[messages.value.length - 1].content}"`
-      //   })
-      //   scrollToBottom()
-      // }, 1000)
     }
 
     const scrollToBottom = () => {
@@ -136,13 +132,22 @@ export default defineComponent({
         handleSetConversation()
       }
     }
+    const handleTrashConversation = async () => {
+      let conversation = getCache('conversation') as string
+      if (conversation) {
+        const res = await app_delete_one_conversation_history(conversation)
+        if (res.code == 0) {
+          messages.value = []
+        }
+      }
+    }
     const handleFetchConversationList = async (conversation: string) => {
       let agent = getCache('agent') as Agent
       const params: conversationHistoryProps = {
         page: 1,
         pagesize: 2000000,
-        app_id: agent.app_id,
-        conversation_id: conversation
+        app_id: agent?.app_id || '',
+        conversation_id: conversation || ''
       }
       const res = await app_conversation_history(params)
       if (res.code == 0) {
@@ -159,12 +164,12 @@ export default defineComponent({
       if (!conversation) {
         const params = {
           id: '',
-          app_id: agent.app_id,
+          app_id: agent?.app_id || '',
           name: "Unnamed"
         }
         const res = await app_upsert_conversation(params)
         if (res.code == 0) {
-          conversation = res.data.id
+          conversation = res.data.id || ''
           setCache('conversation', conversation)
         }
       }
@@ -186,7 +191,8 @@ export default defineComponent({
       sendMessage,
       chatContainer,
       options,
-      loading
+      loading,
+      handleTrashConversation
     }
   },
 })
@@ -219,9 +225,12 @@ export default defineComponent({
   background-color: transparent;
   color: #fff;
   padding: 0 16px;
+  min-width: 0;
 }
 
 .chat-bar-send {
+  flex: none;
+  width: auto;
   border: 1px solid;
   height: 48px;
   padding: 0 32px;
@@ -251,5 +260,14 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
   gap: 16px;
+}
+
+.chat-bar-trash {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  color: #fff;
+  cursor: pointer;
 }
 </style>

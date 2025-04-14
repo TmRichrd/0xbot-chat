@@ -57,10 +57,13 @@ app.mount('#app')
   background-color: transparent;
   color: #fff;
   padding: 0 16px;
+  min-width: 0;
 }
 
 /* 发送按钮 */
 .chat-bar-send {
+  flex: none;
+  width: auto;
   border: 1px solid;
   height: 48px;
   padding: 0 32px;
@@ -132,6 +135,15 @@ app.mount('#app')
   display: flex;
 }
 
+/* 删除按钮 */
+.chat-bar-trash {
+  width: 24px;
+  height: 24px;
+  min-width: 24px;
+  min-height: 24px;
+  color: #fff;
+  cursor: pointer;
+}
 ```
 
 ### In your components
