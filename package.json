@@ -1,6 +1,6 @@
 {
   "name": "0xbot-chat",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "0xBot Studio agent chat library",
   "main": "dist/0xBot-chat.umd.js",
   "module": "dist/0xBot-chat.es.js",
@@ -8,6 +8,7 @@
   "files": [
     "dist"
   ],
+  "author": "0xBot Studio",
   "license": "MIT",
   "scripts": {
     "build": "vite build",
@@ -28,7 +29,12 @@
     "vue3",
     "chat",
     "component",
-    "typescript"
+    "typescript",
+    "0xbot",
+    "0xbot-chat",
+    "0xbot-studio",
+    "0xbot-studio-chat",
+    "0xbot-studio-chat-library"
   ],
   "dependencies": {
     "@fingerprintjs/fingerprintjs": "3",

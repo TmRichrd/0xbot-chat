@@ -20,9 +20,10 @@ import Avatar from "your-avatar-address"
 const app = createApp(App)
 
 app.use(ChatLibrary, {
-  apiKey: 'your-api-key-here',
-  AgentAvatar: 'https://example.com/agent-avatar.png', // or local image
-  UserAvatar: Avatar
+  apiKey: 'your-api-key-here', // required
+  serverUrl: 'http://localhost:3000', // not required
+  AgentAvatar: 'https://example.com/agent-avatar.png', // required or local image
+  UserAvatar: Avatar // required
 })
 
 app.mount('#app')
@@ -161,6 +162,7 @@ app.mount('#app')
 | apiKey      | string | Yes      | -       | Your API key for the chat service |
 | AgentAvatar | string | Yes      | null     | The avatar of the agent            |
 | UserAvatar | string | Yes      | null     | The avatar of the user            |
+| serverUrl | string | No      |      | The server url of the chat service |
 ## License
 
 MIT

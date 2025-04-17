@@ -5,8 +5,10 @@ import '@unocss/reset/tailwind.css'
 import './assets/styles/globa.css'
 import FingerprintJS from '@fingerprintjs/fingerprintjs'
 import { useCookies } from './composables/useCookies'
+import { initRequest } from './utils/request'
 export interface PluginOptions {
   apiKey: string
+  serverUrl?: string
   styles?: {
     container?: string
     message?: string
@@ -29,6 +31,10 @@ const ChatLibraryPlugin: Plugin = {
   install(app: App, options: PluginOptions) {
     if (!options?.apiKey) {
       throw new Error('ChatLibrary: apiKey is required')
+    }
+    if (options.serverUrl) {
+      
+      initRequest({ serverUrl: options.serverUrl })
     }
     app.provide('chat-library-options', options)
     app.component('ChatLibrary', ChatLibrary)
