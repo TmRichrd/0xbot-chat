@@ -5,7 +5,7 @@ A Vue 3 chat component library with API key support.
 ## Installation
 
 ```bash
-npm install 0xbot-chat
+npm install @0xbot/chat
 ```
 
 ## Usage
@@ -14,8 +14,8 @@ npm install 0xbot-chat
 
 ```javascript
 import { createApp } from 'vue'
-import ChatLibrary from '0xbot-chat'
-import "0xbot-chat/dist/style.css"
+import ChatLibrary from '@0xbot/chat'
+import "@0xbot/chat/dist/style.css"
 import Avatar from "your-avatar-address"
 const app = createApp(App)
 
@@ -112,7 +112,7 @@ app.mount('#app')
 @media (min-width: 768px) {
   .message-bubble {
     max-width: 70%;
-    font-size: 16px;
+    font-size: 13px;
   }
 }
 

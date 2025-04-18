@@ -42,7 +42,7 @@ const props = defineProps({
 @media (min-width: 768px) {
   .message-bubble {
     max-width: 70%;
-    font-size: 16px;
+    font-size: 13px;
   }
 }
 
