@@ -1,21 +1,21 @@
-# 0xBot Chat Library
+# 0xBot 聊天组件库
 
-A Vue 3 chat component library with API key support.
+一个支持 API 密钥的 Vue 3 聊天组件库。
 
-## Language
+## 语言
 
 - [English](README.md)
 - [中文](README.zh-CN.md)
 
-## Installation
+## 安装
 
 ```bash
 npm install @0xbot/chat
 ```
 
-## Usage
+## 使用方法
 
-### Global Installation
+### 全局安装
 
 ```javascript
 import { createApp } from 'vue'
@@ -25,46 +25,46 @@ import Avatar from "your-avatar-address"
 const app = createApp(App)
 
 app.use(ChatLibrary, {
-  apiKey: 'your-api-key-here', // required
-  serverUrl: 'http://localhost:3000', // not required
-  AgentAvatar: 'https://example.com/agent-avatar.png', // required or local image
-  UserAvatar: Avatar, // required
-  loadingText: 'AI is thinking...', // optional, customize loading text
-  emptyText: 'No messages yet' // optional, customize empty message text
+  apiKey: 'your-api-key-here', // 必填
+  serverUrl: 'http://localhost:3000', // 选填
+  AgentAvatar: 'https://example.com/agent-avatar.png', // 必填，可以是本地图片
+  UserAvatar: Avatar, // 必填
+  loadingText: 'AI is thinking...', // 选填，自定义加载文本
+  emptyText: 'No messages yet' // 选填，自定义空消息文本
 })
 
 app.mount('#app')
 ```
 
-## Options
+## 配置选项
 
-| Option      | Type   | Required | Default | Description                     |
-|-------------|--------|----------|---------|---------------------------------|
-| apiKey      | string | Yes      | -       | Your API key for the chat service |
-| AgentAvatar | string | Yes      | null    | The avatar of the agent         |
-| UserAvatar  | string | Yes      | null    | The avatar of the user          |
-| serverUrl   | string | No       | -       | The server url of the chat service |
-| loadingText | string | No       | 'AI is thinking...' | Custom text to show when AI is processing |
-| emptyText   | string | No       | 'No messages yet' | Custom text to show when there are no messages |
+| 选项        | 类型   | 是否必填 | 默认值  | 描述                     |
+|-------------|--------|----------|---------|--------------------------|
+| apiKey      | string | 是       | -       | 聊天服务的 API 密钥      |
+| AgentAvatar | string | 是       | null    | AI 助手的头像           |
+| UserAvatar  | string | 是       | null    | 用户的头像              |
+| serverUrl   | string | 否       | -       | 聊天服务的服务器地址     |
+| loadingText | string | 否       | 'AI is thinking...' | AI 处理时的自定义文本 |
+| emptyText   | string | 否       | 'No messages yet' | 空消息时的自定义文本 |
 
-## Features
+## 功能特性
 
-- Real-time chat with AI
-- Markdown support for messages
-- Customizable loading states
-- Empty state handling
-- Responsive design
-- Customizable themes
-- Message history management
+- 实时 AI 聊天
+- 支持 Markdown 消息
+- 可自定义加载状态
+- 空消息状态处理
+- 响应式设计
+- 可自定义主题
+- 消息历史管理
 
-## Changelog
+## 更新日志
 
-See [CHANGELOG.md](CHANGELOG.md) for the complete list of changes.
+查看 [CHANGELOG.zh-CN.md](CHANGELOG.zh-CN.md) 获取完整的更新记录。
 
-## Styling
+## 样式
 
 ```css
-/* Main container */
+/* 主容器 */
 .chat-library {
   box-sizing: border-box;
   height: 100%;
@@ -75,14 +75,14 @@ See [CHANGELOG.md](CHANGELOG.md) for the complete list of changes.
   gap: 16px;
 }
 
-/* Bottom bar */
+/* 底部栏 */
 .chat-bar {
   display: flex;
   align-items: center;
   gap: 16px;
 }
 
-/* Input field */
+/* 输入框 */
 .chat-bar-input {
   flex: 1;
   height: 44px;
@@ -95,7 +95,7 @@ See [CHANGELOG.md](CHANGELOG.md) for the complete list of changes.
   min-width: 0;
 }
 
-/* Send button */
+/* 发送按钮 */
 .chat-bar-send {
   flex: none;
   width: auto;
@@ -108,13 +108,13 @@ See [CHANGELOG.md](CHANGELOG.md) for the complete list of changes.
   transition: all 0.2s ease-in-out;
 }
 
-/* Send button hover */
+/* 发送按钮悬停效果 */
 .chat-bar-send:hover {
   background-color: var(--primary-color);
   color: white !important;
 }
 
-/* Chat container (excluding bottom bar) */
+/* 聊天容器（不包含底部栏） */
 .chat-container {
   flex: 1;
   overflow-y: scroll;
@@ -122,19 +122,19 @@ See [CHANGELOG.md](CHANGELOG.md) for the complete list of changes.
   -ms-overflow-style: none;
 }
 
-/* Hide scrollbar */
+/* 隐藏滚动条 */
 .chat-container::-webkit-scrollbar {
   display: none;
 }
 
-/* Chat message list */
+/* 聊天消息列表 */
 .chat-container-list {
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* Message bubble */
+/* 消息气泡 */
 .message-bubble {
   padding: 12px 16px;
   border-radius: 8px;
@@ -151,7 +151,7 @@ See [CHANGELOG.md](CHANGELOG.md) for the complete list of changes.
   }
 }
 
-/* Avatar */
+/* 头像 */
 .chat-avatar {
   width: 44px;
   height: 44px;
@@ -162,17 +162,17 @@ See [CHANGELOG.md](CHANGELOG.md) for the complete list of changes.
   border-radius: 8px;
 }
 
-/* Message bubble background */
+/* 消息气泡背景 */
 .chat-message {
   background-color: rgba(255, 255, 255, 0.1)
 }
 
-/* Message container */
+/* 消息容器 */
 .message-container {
   display: flex;
 }
 
-/* Delete button */
+/* 删除按钮 */
 .chat-bar-trash {
   width: 24px;
   height: 24px;
@@ -182,13 +182,13 @@ See [CHANGELOG.md](CHANGELOG.md) for the complete list of changes.
   cursor: pointer;
 }
 
-/* Loading state */
+/* 加载状态 */
 .message-loading {
   color: #fff;
   font-style: italic;
 }
 
-/* Empty message state */
+/* 空消息状态 */
 .message-empty {
   color: #fff;
   font-style: italic;
@@ -196,6 +196,6 @@ See [CHANGELOG.md](CHANGELOG.md) for the complete list of changes.
 }
 ```
 
-## License
+## 许可证
 
 MIT

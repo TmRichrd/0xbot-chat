@@ -4,7 +4,7 @@ import axios, {
   AxiosResponse,
   InternalAxiosRequestConfig,
 } from 'axios'
-import { useCookies } from '../composables/useCookies'
+import { useStorage } from '../composables/useStorage'
 import { Auth } from '../api/types'
 
 interface ResponseData<T> {
@@ -32,9 +32,9 @@ export function initRequest(options: RequestOptions = {}) {
   })
 
   service.interceptors.request.use(
-    (config: InternalAxiosRequestConfig) => {
-      const { getCache } = useCookies()
-      const auth = getCache('auth') as Auth
+    async (config: InternalAxiosRequestConfig) => {
+      const { getStorage } = useStorage()
+      const auth = await getStorage<Auth>('auth')
       config.headers['Token'] = auth?.token || ''
       return config
     },

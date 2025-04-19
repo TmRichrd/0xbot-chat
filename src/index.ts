@@ -3,9 +3,8 @@ import { setupCopyHandler } from './utils/copy'
 import ChatLibrary from './components/ChatLibrary.vue'
 import '@unocss/reset/tailwind.css'
 import './assets/styles/globa.css'
-import FingerprintJS from '@fingerprintjs/fingerprintjs'
-import { useCookies } from './composables/useCookies'
 import { initRequest } from './utils/request'
+
 export interface PluginOptions {
   apiKey: string
   serverUrl?: string
@@ -19,13 +18,6 @@ export interface PluginOptions {
   }
 }
 setupCopyHandler()
-const { setCache } = useCookies()
-FingerprintJS.load()
-  .then((fp) => fp.get())
-  .then((result) => {
-    const visitorId = result.visitorId
-    setCache('visitorId', visitorId)
-  })
 
 const ChatLibraryPlugin: Plugin = {
   install(app: App, options: PluginOptions) {
@@ -40,6 +32,5 @@ const ChatLibraryPlugin: Plugin = {
     app.component('ChatLibrary', ChatLibrary)
   },
 }
-
 export default ChatLibraryPlugin
 export { ChatLibrary }

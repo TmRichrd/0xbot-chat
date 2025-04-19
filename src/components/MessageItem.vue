@@ -5,7 +5,13 @@
   }">
     <img v-if="!self" :src="AgentAvatar" class="chat-avatar" />
     <div class="message-bubble" :class="self ? 'chat-message' : ''">
-      <slot />
+      <div v-if="!content && !loading" class="message-empty">
+        {{ emptyText }}
+      </div>
+      <slot v-else />
+      <div v-if="loading" class="message-loading">
+        {{ loadingText }}
+      </div>
     </div>
     <img v-if="self" :src="UserAvatar" class="chat-avatar" />
   </div>
@@ -23,6 +29,22 @@ const props = defineProps({
     default: ''
   },
   AgentAvatar: {
+    type: String,
+    default: ''
+  },
+  loading: {
+    type: Boolean,
+    default: false
+  },
+  loadingText: {
+    type: String,
+    default: 'AI is thinking...'
+  },
+  emptyText: {
+    type: String,
+    default: 'No messages yet'
+  },
+  content: {
     type: String,
     default: ''
   }
@@ -78,5 +100,16 @@ const props = defineProps({
 
 .message-align-right {
   justify-content: flex-end;
+}
+
+.message-loading {
+  color: #fff;
+  font-style: italic;
+}
+
+.message-empty {
+  color: #fff;
+  font-style: italic;
+  text-align: center;
 }
 </style>

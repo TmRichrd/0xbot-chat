@@ -1,17 +1,21 @@
 export interface ChatMessage {
   self: boolean
   content: string
+  loading?: boolean
 }
 
 export interface PluginOptions {
   apiKey: string
+  serverUrl?: string
+  UserAvatar?: string
+  AgentAvatar?: string
+  loadingText?: string
+  emptyText?: string
   theme?: {
-    padding: number // 边距
-    borderRadius: number // 圆角
-    textColor: string // 文字颜色
-    bgColor: string // 背景色
-    primary?: string //主题色
+    padding?: number
+    borderRadius?: number
+    bgColor?: string
+    primary?: string
+    textColor?: string
   }
-  AgentAvatar: string // agent头像
-  UserAvatar: string // 用户头像
 }

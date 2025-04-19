@@ -18,7 +18,10 @@ export interface AuthDataRes {
   auth: Auth
   agent: Agent
 }
-
+export interface DataProps {
+  auth: Auth
+  agent: Agent
+}
 export interface Agent {
   id: string
   name: string

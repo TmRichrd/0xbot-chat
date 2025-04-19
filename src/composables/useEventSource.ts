@@ -1,5 +1,5 @@
 import { ref, onUnmounted } from 'vue'
-import { useCookies } from './useCookies'
+import { useStorage } from './useStorage'
 import { Auth } from '../api/types'
 
 export const useEventStream = () => {
@@ -14,8 +14,8 @@ export const useEventStream = () => {
   ): Promise<void> => {
     return new Promise(async (resolve, reject) => {
       try {
-        const { getCache } = useCookies()
-        const auth = getCache('auth') as Auth
+        const { getStorage } = useStorage()
+        const auth = await getStorage<Auth>('auth')
         const response = await fetch(SERVER_URL, {
           method: 'POST',
           headers: {
