@@ -2,8 +2,15 @@
 
 ## Language
 
-- [English](CHANGELOG.md)
-- [中文](CHANGELOG.zh-CN.md)
+- [English](https://github.com/TmRichrd/0xbot-chat/blob/main/CHANGELOG.md)
+- [中文](https://github.com/TmRichrd/0xbot-chat/blob/main/CHANGELOG.zh-CN.md)
+
+## [1.0.9] - 2025-04-19
+
+### Changed
+- Updated documentation URLs to point to the correct GitHub repository
+- Fixed language switching links in all documentation files
+- Improved documentation navigation between different language versions
 
 ## [1.0.8] - 2025-04-19
 

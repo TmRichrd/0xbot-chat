@@ -1,5 +1,17 @@
 # 更新日志
 
+## Language
+
+- [English](https://github.com/TmRichrd/0xbot-chat/blob/main/CHANGELOG.md)
+- [中文](https://github.com/TmRichrd/0xbot-chat/blob/main/CHANGELOG.zh-CN.md)
+
+## [1.0.9] - 2025-04-19
+
+### 变更
+- 更新了文档链接，指向正确的 GitHub 仓库
+- 修复了所有文档文件中的语言切换链接
+- 改进了不同语言版本文档之间的导航
+
 ## [1.0.8] - 2025-04-19
 
 ### 新增

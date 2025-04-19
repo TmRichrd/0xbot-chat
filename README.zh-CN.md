@@ -4,8 +4,8 @@
 
 ## 语言
 
-- [English](README.md)
-- [中文](README.zh-CN.md)
+- [English](https://github.com/TmRichrd/0xbot-chat/blob/main/README.md)
+- [中文](https://github.com/TmRichrd/0xbot-chat/blob/main/README.zh-CN.md)
 
 ## 安装
 
@@ -59,7 +59,7 @@ app.mount('#app')
 
 ## 更新日志
 
-查看 [CHANGELOG.zh-CN.md](CHANGELOG.zh-CN.md) 获取完整的更新记录。
+查看 [CHANGELOG.zh-CN.md]([CHANGELOG.zh-CN.md](https://github.com/TmRichrd/0xbot-chat/blob/main/CHANGELOG.zh-CN.md)) 获取完整的更新记录。
 
 ## 样式
 

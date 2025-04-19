@@ -1,6 +1,6 @@
 {
   "name": "@0xbot/chat",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "description": "0xBot Studio agent chat library",
   "main": "dist/0xBot-chat.umd.js",
   "module": "dist/0xBot-chat.es.js",

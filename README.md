@@ -4,8 +4,8 @@ A Vue 3 chat component library with API key support.
 
 ## Language
 
-- [English](README.md)
-- [中文](README.zh-CN.md)
+- [README.md](https://github.com/TmRichrd/0xbot-chat/blob/main/README.md)
+- [README.zh-CN.md](https://github.com/TmRichrd/0xbot-chat/blob/main/README.zh-CN.md)
 
 ## Installation
 
@@ -59,7 +59,7 @@ app.mount('#app')
 
 ## Changelog
 
-See [CHANGELOG.md](CHANGELOG.md) for the complete list of changes.
+See [CHANGELOG.md](https://github.com/TmRichrd/0xbot-chat/blob/main/README.md) for the complete list of changes.
 
 ## Styling
 
